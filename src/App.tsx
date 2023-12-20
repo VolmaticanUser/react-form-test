@@ -35,7 +35,7 @@ function App() {
 
 
   return (
-    <div className='flex w-full h-full items-center justify-center bg-slate-700'>
+    <div className='flex w-full h-screen items-center justify-center bg-slate-700'>
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit(onSubmit)}>
 
@@ -100,37 +100,28 @@ function App() {
           </div>
 
 
-          <div className="mb-4">
-            <label className="formLabel" >
-              Username
-            </label>
-            <input className={`${errors.userName ? "formInputError" : "formInput"} focus:outline-none focus:shadow-outline`} {...register("userName", { required: true, minLength: 3, maxLength: 15 })} placeholder="Username" />
-            {errors.userName && <p className="formError">Please choose a username.</p>}
-          </div>
-
           <div className='mb-2'>
             <label className='formLabel'>Select your gender</label>
           </div>
 
-
           <div className='mb-4'>
             <div className='flex items-center'>
               <input {...register("gender", { required: true })} type="radio" value="Male" />
-              <label className="formLabel" >
+              <label className="radioLabel" >
                 Male
               </label>
             </div>
 
             <div className='flex items-center'>
               <input {...register("gender", { required: true })} type="radio" value="Female" />
-              <label className="formLabel" >
+              <label className="radioLabel" >
                 Female
               </label>
             </div>
 
             <div className='flex items-center'>
               <input {...register("gender", { required: true })} type="radio" value="Others" />
-              <label className="formLabel" >
+              <label className="radioLabel" >
                 Others
               </label>
             </div>
@@ -138,11 +129,11 @@ function App() {
           </div>
 
           <div className="mb-4">
-            <label className="formLabel" >
+            <input type="checkbox" placeholder="terms" {...register("terms", { required: true })} />
+            <label className="radioLabel" >
               I agree to terms and conditions
             </label>
-      <input type="checkbox" placeholder="terms" {...register("terms", {required: true})} />
-            {errors.terms && <p className="formError">you must agree.</p>}
+            {errors.terms && <p className="formError">You must agree.</p>}
           </div>
 
 
